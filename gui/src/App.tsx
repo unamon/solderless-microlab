@@ -65,7 +65,7 @@ export function App() {
   }, [status?.status, status?.step])
 
   return (
-    <div className={`lcd-wrapper${settings.darkMode ? ' dark-mode' : ''}`}>
+    <div className={`lcd-wrapper${settings.darkMode ? ' dark-mode' : ''} container-fluid`}>
       <Header>
         {status
           ? `${status?.step ? `${status?.step}: ` : ''}${status?.status} ${

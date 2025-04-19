@@ -7,7 +7,7 @@ import LogoBorder from '../assets/logo-border.svg'
 import LogoHead from '../assets/logo-head.svg'
 
 export const LogoContainer = () => (
-  <div className="logo-container">
+  <div className="logo-container mx-auto">
     <img className="logo-head" src={LogoHead} alt="Four Thieves Vinegar Logo" />
     <img className="logo-burst" src={LogoBurst} alt="" />
     <img className="logo-border" src={LogoBorder} alt="" />

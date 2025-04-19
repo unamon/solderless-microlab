@@ -12,14 +12,14 @@ export function HomePage(props: { status: MicrolabStatusResponse }) {
   const { status } = props
 
   return (
-    <div className="home-page page">
-      <Grid style={{ height: '100%' }}>
+    <div className="home-page page row">
+        <Grid style={{ height: '100%' }} stackable>
         <Grid.Row columns={2} style={{ height: '100%' }}>
-          <Grid.Column style={{ height: '100%' }}>
-            <LogoContainer />
-            <p>{t('Four Thieves Vinegar MicroLab')}</p>
+          <Grid.Column style={{ height: '100%' }} width={8}>
+          <p>{t('Four Thieves Vinegar MicroLab')}</p>
+          <LogoContainer/>
           </Grid.Column>
-          <Grid.Column className="home-page-menu">
+          <Grid.Column className="d-flex flex-column justify-content-center"  width={8}>
             <div className="button-list">
               {status && status.recipe ? (
                 //if there's a recipe in progress, give a link to see its status
@@ -42,7 +42,8 @@ export function HomePage(props: { status: MicrolabStatusResponse }) {
             </div>
           </Grid.Column>
         </Grid.Row>
+        
       </Grid>
-    </div>
+      </div>
   )
 }
