@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { Button, Grid } from 'semantic-ui-react'
 
 import { RecipeUpload } from '../components/RecipeUpload'
 import SettingsContext from '../contexts/Settings'
@@ -50,13 +50,16 @@ export function RecipesPage() {
   })
 
   return (
-    <section className="page recipes-page">
-      <section className="recipes-left-nav">
+    <Grid className="page recipes-page" stackable>
+      <Grid.Row columns={2}>
+      <Grid.Column width={2}>
+        <section className="recipes-left-nav">
         {Object.keys(recipeAnchorMap).map(key => {
           return (
             <Button
-              key={key}
+              key={key} 
               color="purple"
+              className='anchorMapButton'
               onClick={() => {
                 document.querySelector('.recipe-anchor-' + key)?.scrollIntoView()
               }}>
@@ -64,8 +67,10 @@ export function RecipesPage() {
             </Button>
           )
         })}
-      </section>
-      <section className="recipes-list">
+        </section>
+      </Grid.Column>
+      <Grid.Column width={14} >
+        <section className="recipes-list">
         <h1>{t('recipe-list')}</h1>
         {recipes.length ? (
           <div className="button-list">
@@ -91,7 +96,11 @@ export function RecipesPage() {
         ) : (
           <p>{t('loading-placeholder')}</p>
         )}
-      </section>
-    </section>
+        </section>
+
+      </Grid.Column>
+      </Grid.Row>
+
+    </Grid>
   )
 }
